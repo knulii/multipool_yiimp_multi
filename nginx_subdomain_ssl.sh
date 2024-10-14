@@ -36,8 +36,8 @@ limit_req zone=req_limit_per_ip burst=80 nodelay;
 limit_req_zone $binary_remote_addr zone=req_limit_per_ip:40m rate=5r/s;
 
 server {
-	listen 443 ssl http2;
-	listen [::]:443 ssl http2;
+	listen 443 ssl;
+	listen [::]:443 ssl;
 
 	server_name '"${DomainName}"';
 	set $base "/var/www/'"${DomainName}"'/html";
