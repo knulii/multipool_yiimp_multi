@@ -27,9 +27,9 @@ echo -e "$GREEN Done...$COL_RESET"
 
 # MariaDB
 echo -e " Installing MariaDB Repository...$COL_RESET"
-sudo apt-get install software-properties-common
+hide_output sudo apt-get install software-properties-common
 hide_output sudo apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
-sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://sfo1.mirrors.digitalocean.com/mariadb/repo/10.4/ubuntu focal main' >/dev/null 2>&1
+hide_output sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://sfo1.mirrors.digitalocean.com/mariadb/repo/10.4/ubuntu focal main' >/dev/null 2>&1
 echo -e "$GREEN Done...$COL_RESET"
 
 # Upgrade System Files
