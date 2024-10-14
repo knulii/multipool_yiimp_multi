@@ -18,6 +18,10 @@ limit_conn conn_limit_per_ip 80;
 limit_req zone=req_limit_per_ip burst=80 nodelay;
 limit_req_zone $binary_remote_addr zone=req_limit_per_ip:40m rate=5r/s;
 
+
+sudo mkdir -p /etc/nginx/sites-available/${DomainName}
+sudo mkdir -p /etc/nginx/sites-enabled/${DomainName}
+
 server {
 	listen 443 ssl http2;
 	listen [::]:443 ssl http2;
@@ -74,6 +78,7 @@ server {
 
 sudo ln -s /etc/nginx/sites-available/${DomainName}.conf /etc/nginx/sites-enabled/${DomainName}.conf;
 sudo ln -s $STORAGE_ROOT/yiimp/site/web /var/www/${DomainName}/html;
+sudo rm -r /etc/nginx/sites-enabled/${DomainName}
 
 restart_service nginx;
 wait $!
