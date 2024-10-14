@@ -23,8 +23,8 @@ sudo mkdir -p /etc/nginx/sites-available/${DomainName}
 sudo mkdir -p /etc/nginx/sites-enabled/${DomainName}
 
 server {
-	listen 443 ssl http2;
-	listen [::]:443 ssl http2;
+	listen 443 ssl;
+	listen [::]:443 ssl;
 
 	server_name '"${DomainName}"';
 	set $base "/var/www/'"${DomainName}"'/html";
