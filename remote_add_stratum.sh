@@ -19,6 +19,7 @@ echo -e " Building stratum folder structure and copying files...$COL_RESET"
 cd $STORAGE_ROOT/yiimp/yiimp_setup/yiimp/stratum/iniparser
 hide_output sudo make
 wait $!
+hide_output sudo apt-get install libmysqlclient-dev
 cd $STORAGE_ROOT/yiimp/yiimp_setup/yiimp/stratum
 if [[ ("$AutoExchange" == "y" || "$AutoExchange" == "Y" || "$AutoExchange" == "yes" || "$AutoExchange" == "Yes" || "$AutoExchange" == "YES") ]]; then
 sudo sed -i 's/CFLAGS += -DNO_EXCHANGE/#CFLAGS += -DNO_EXCHANGE/' $STORAGE_ROOT/yiimp/yiimp_setup/yiimp/stratum/Makefile
